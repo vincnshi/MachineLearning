@@ -10,12 +10,27 @@ function [X_poly] = polyFeatures(X, p)
 X_poly = zeros(numel(X), p);
 
 % ====================== YOUR CODE HERE ======================
-% Instructions: Given a vector X, return a matrix X_poly where the p-th 
+% Instructions: Given a vector X, return a matrix X_poly where the p-th
 %               column of X contains the values of X to the p-th power.
 %
-% 
+%
 
+m = size(X,1);
 
+%fprintf('\nSize of m: %d %d\n', size(m));
+
+for i=1:m
+
+    poly_feature = zeros(p, 1);
+
+    %fprintf('\nSize of poly_feature %d %d\n', size(poly_feature));
+
+    for j=1:p
+        poly_feature(j) =  X(i).^j;
+    end
+
+    X_poly(i, :) = poly_feature;
+end
 
 
 
